@@ -1,13 +1,124 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+  --lightGray: rgb(65, 65, 65);
+  --gray: rgb(49, 49, 49);
+  --white: rgb(238, 238, 238);
+  --border: 1px solid rgb(39, 39, 39);
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--lightGray);
+  color: var(--white);
+}
+button,
+select {
+  font-size: 1rem;
+  color: var(--white);
+  padding: 0.5em 1em;
+  border: 1px solid var(--white);
+  border-radius: 0.5em;
+}
+button {
+  background: none;
+}
+button:hover {
+  cursor: pointer;
+  background: var(--gray);
+}
+select {
+  background: var(--gray);
+  padding-right: 0em;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.gameSettings,
+.information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5em 0;
+}
+.gameSettings {
+  min-width: 26em;
+}
+.information {
+  font-size: 1.5rem;
+}
+.information span > span {
+  display: inline-flex;
+  align-content: center;
+  padding: 0.3em;
+  border-radius: 0.5em;
+  border: var(--border);
+}
+
+.board {
+  margin: 1em auto;
+}
+.row:first-child {
+  padding-top: 0.1em;
+  border-top: var(--border);
+}
+.row {
+  display: flex;
+  border-left: var(--border);
+}
+.row > .block {
+  font-size: 0.8rem;
+  flex: 0 0 2em;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: var(--border);
+  border-bottom: var(--border);
+  border-radius: 0.2em;
+  margin: 0.08em;
+}
+.row > .block.hidden {
+  background: var(--gray);
+  border: 0.3em outset rgb(46, 46, 46);
+}
+.row > .block.hidden:hover {
+  background: #000;
+  border: 0;
+}
+.gameOver {
+  color: red;
+}
+.row > .block.gameOver {
+  background: red;
+  border: 0;
+}
+.row > .block:before {
+  content: "";
+  float: left;
+  padding-top: 100%;
+}
+h1,
+h2 {
+  text-align: center;
+}
+h2 {
+  font-weight: normal;
+}
+ol li {
+  font-size: 1.3rem;
+  padding-left: 1em;
+  margin-bottom: 0.5em;
 }
